@@ -1,3 +1,7 @@
+#!/usr/bin/env bash
+
+sudo apt-get install cloud-image-utils qemu
+
 # This is already in qcow2 format.
 img=ubuntu-18.04-server-cloudimg-amd64.img
 if [ ! -f "$img" ]; then
