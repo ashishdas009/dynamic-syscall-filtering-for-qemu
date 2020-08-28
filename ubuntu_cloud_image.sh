@@ -25,3 +25,14 @@ ssh_pwauth: True
 EOF
   cloud-localds "$user_data" user-data
 fi
+
+qemu-system-x86_64 \
+  -drive "file=${img},format=qcow2" \
+  -drive "file=${user_data},format=raw",if=ide,cache=writeback \
+  -enable-kvm \
+  -m 4G \
+  -netdev user,id=net0 \
+  -serial mon:stdio \
+  -smp 18 \
+  -vga none \
+;
